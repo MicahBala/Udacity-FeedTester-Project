@@ -73,21 +73,27 @@ $(
         //  Select the menu icon to click
         let targetElement = document.querySelector('.menu-icon-link');
 
-        // test if the classList.contains('menu-hidden') retuns false
-        let myBool = targetElement.classList.contains('menu-hidden');
+        let myBool = targetElement.addEventListener('click', () => {
+          targetElement.classList.toggle('menu-hidden');
+        });
 
-        expect(myBool).not.toBe(true);
+        if (myBool) {
+          expect(myBool).toBe(true);
+        } else {
+          expect(myBool).not.toBe(true);
+        }
       });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
-
-    /* TODO: Write a test that ensures when the loadFeed
+    describe('Initial Entries', function() {
+      /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
