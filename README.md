@@ -1,48 +1,38 @@
-# Project Overview
+# Udacity Student Project - Feed Reader Testing.
 
-In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
+## Introduction
 
+This project is part of the Udacity course Front-end Nanodegree Programme. It is an application that load news feeds from four different websites listed below and, uses Jasmine Testing Framework is used to write tests for the application so that the application behaves as expected giving th required output - in this case the news feeds.
 
-## Why this Project?
+- [Udacity Blog](http://blog.udacity.com/feed)
+- [CSS Tricks](http://feeds.feedburner.com/CssTricks)
+- [HTML5 Rocks](http://feeds.feedburner.com/html5rocks)
+- [Linear Digressions](http://feeds.feedburner.com/udacity-linear-digressions)
 
-Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". This is when developers write tests first, before they ever start developing their application. All the tests initially fail and then they start writing application code to make these tests pass.
+## Expectations
 
-Whether you work in an organization that uses test-driven development or in an organization that uses tests to make sure future feature development doesn't break existing features, it's an important skill to have!
+Tests were written for the following expectations:
 
+- It is expected that the news feed loads
+- It is expected that new feeds are different from previously loaded feed
 
-## What will I learn?
+## Running The application
 
-You will learn how to use Jasmine to write a number of tests against a pre-existing application. These will test the underlying business logic of the application as well as the event handling and DOM manipulation.
+_Note that this application actually downloads live feeds from the websites mentioned above, so you must be connected to the Internet_ to run the application otherwise, you will get an error. Visit the link https://github.com/MicahBala/micahbala.github.io click on the green button (labeled Clone or Download ) at the top right corner of the screen to download a zipped folder of the entire application or copy a clone link. Once you get the folder on a local system, Unzip the folder and double click to run the index.html file. Find a working online version of the application below.
 
+- [The Udacity Feed Tester Application](https://MicahBala.github.io/).
 
-## How will this help my career?
+Check the folder jasmine/spect for the Jasmine specs run against the application.
 
-* Writing effective tests requires analyzing multiple aspects of an application including the HTML, CSS and JavaScript - an extremely important skill when changing teams or joining a new company.
-* Good tests give you the ability to quickly analyze whether new code breaks an existing feature within your codebase, without having to manually test all of the functionality.
+## Acknowledgements
 
+AS A part of the guide to developing the game, i consulted:
 
-# How will I complete this project?
+- Mentors on the Udacity Classroom
+- Fellow course mates
+- https://matthewcranford.com/feed-reader-walkthrough-part-4-async-tests/
 
-Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
+## Author
 
-1. Take the JavaScript Testing [course](https://www.udacity.com/course/ud549)
-2. Download the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).
-3. Review the functionality of the application within your browser.
-4. Explore the application's HTML (**./index.html**), CSS (**./css/style.css**) and JavaScript (**./js/app.js**) to gain an understanding of how it works.
-5. Explore the Jasmine spec file in **./jasmine/spec/feedreader.js** and review the [Jasmine documentation](http://jasmine.github.io).
-6. Edit the `allFeeds` variable in **./js/app.js** to make the provided test fail and see how Jasmine visualizes this failure in your application.
-7. Return the `allFeeds` variable to a passing state.
-8. Write a test that loops through each feed in the `allFeeds` object and ensures it has a URL defined and that the URL is not empty.
-9. Write a test that loops through each feed in the `allFeeds` object and ensures it has a name defined and that the name is not empty.
-10. Write a new test suite named `"The menu"`.
-11. Write a test that ensures the menu element is hidden by default. You'll have to analyze the HTML and the CSS to determine how we're performing the hiding/showing of the menu element.
-12. Write a test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display when clicked and does it hide when clicked again.
-13. Write a test suite named `"Initial Entries"`.
-14. Write a test that ensures when the `loadFeed` function is called and completes its work, there is at least a single `.entry` element within the `.feed` container.
-15. Write a test suite named `"New Feed Selection"`.
-16. Write a test that ensures when a new feed is loaded by the `loadFeed` function that the content actually changes.
-17. No test should be dependent on the results of another.
-18. Callbacks should be used to ensure that feeds are loaded before they are tested.
-19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
-21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
+- Micah Yunana Bala
+  _Undacity NanoDegree Student (FEND Web Dev.)_

@@ -1,3 +1,4 @@
+'use strict';
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -59,6 +60,8 @@ $(
          */
       it('element is hidden by default', () => {
         let targetElement = document.querySelector('body');
+
+        // Check if body element contains the deafult class 'menu-hidden'
         let myBool = targetElement.classList.contains('menu-hidden');
 
         expect(myBool).toBe(true);
@@ -113,25 +116,23 @@ $(
          */
 
       let container = document.querySelector('.feed');
-      let newsFeed = [],
-        myBool = true,
-        firstContent,
-        secondContent;
+      let firstContent, secondContent;
 
       beforeEach(done => {
         loadFeed(0);
+        // After the loadFeed function is called with initial value 0, convert the child elements to an array and store in firstContent
         [...firstContent] = container.children;
-        firstContent.forEach(entry => {
-          newsFeed.push(entry.innerText);
-        });
 
         loadFeed(1, done);
       });
 
       it('content changes', () => {
+        // After the loadFeed function is called with initial value 1, convert the child elements to an array and store in secondContent
         [...secondContent] = container.children;
+
+        // Loop through the secondContent array and compare each of its elements to the firstContent array
         secondContent.forEach(function(newEntry, index) {
-          expect(newEntry.innerText === newsFeed[index]).toBe(false);
+          expect(newEntry.innerText === firstContent[index]).toBe(false);
         });
       });
     });
