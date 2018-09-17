@@ -18,9 +18,7 @@ Tests were written for the following expectations:
 
 ## Running The application
 
-_Note that this application actually downloads live feeds from the websites mentioned above, so you must be connected to the Internet_ to run the application otherwise, you will get an error. Visit the link https://github.com/MicahBala/micahbala.github.io click on the green button (labeled Clone or Download ) at the top right corner of the screen to download a zipped folder of the entire application or copy a clone link. Once you get the folder on a local system, Unzip the folder and double click to run the index.html file. Find a working online version of the application below.
-
-- [The Udacity Feed Tester Application](https://MicahBala.github.io/).
+_Note that this application actually downloads live feeds from the websites mentioned above, so you must be connected to the Internet_ to run the application otherwise, you will get an error. Visit the link https://github.com/MicahBala/micahbala.github.io click on the green button (labeled Clone or Download ) at the top right corner of the screen to download a zipped folder of the entire application or copy a clone link. Once you get the folder on a local system, Unzip the folder and double click to run the index.html file.
 
 Check the folder jasmine/spect for the Jasmine specs run against the application.
 
