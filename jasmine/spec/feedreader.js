@@ -106,11 +106,34 @@ $(
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-    describe('News Feed Selection', () => {
+    describe('New Feed Selection', () => {
       /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+      let container = document.querySelector('.feed');
+      let newsFeed = [],
+        myBool = true,
+        firstContent,
+        secondContent;
+
+      beforeEach(done => {
+        loadFeed(0);
+        [...firstContent] = container.children;
+        firstContent.forEach(entry => {
+          newsFeed.push(entry.innerText);
+        });
+
+        loadFeed(1, done);
+      });
+
+      it('content changes', () => {
+        [...secondContent] = container.children;
+        secondContent.forEach(function(newEntry, index) {
+          expect(newEntry.innerText === newsFeed[index]).toBe(false);
+        });
+      });
     });
   })()
 );
