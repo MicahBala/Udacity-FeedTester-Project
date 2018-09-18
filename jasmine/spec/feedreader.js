@@ -58,11 +58,15 @@ $(
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-      it('element is hidden by default', () => {
-        let targetElement = document.querySelector('body');
 
+      let bodyElement = document.querySelector('body');
+      let menuElement = document.querySelector('.menu-icon-link');
+      let myBool;
+
+      it('element is hidden by default', () => {
         // Check if body element contains the deafult class 'menu-hidden'
-        let myBool = targetElement.classList.contains('menu-hidden');
+        // let bodyElement = document.querySelector('body');
+        myBool = bodyElement.classList.contains('menu-hidden');
 
         expect(myBool).toBe(true);
       });
@@ -72,19 +76,17 @@ $(
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+
       it('toggles visibility', () => {
         //  Select the menu icon to click
-        let targetElement = document.querySelector('.menu-icon-link');
+        // let bodyElement = document.querySelector('body');
+        // let menuElement = document.querySelector('.menu-icon-link');
 
-        let myBool = targetElement.addEventListener('click', () => {
-          targetElement.classList.toggle('menu-hidden');
-        });
+        menuElement.click();
+        expect(bodyElement.classList.contains('menu-hidden')).toBe(false);
 
-        if (myBool) {
-          expect(myBool).toBe(true);
-        } else {
-          expect(myBool).not.toBe(true);
-        }
+        menuElement.click();
+        expect(bodyElement.classList.contains('menu-hidden')).toBe(true);
       });
     });
 
@@ -102,9 +104,8 @@ $(
         loadFeed(0, done);
       });
 
-      it('has at least a single entry', done => {
-        expect(container.firstChild).not.toBeNull();
-        done();
+      it('has at least a single entry', () => {
+        expect(container.children.length > 0).toBe(true);
       });
     });
 
@@ -119,21 +120,18 @@ $(
       let firstContent, secondContent;
 
       beforeEach(done => {
-        loadFeed(0);
-        // After the loadFeed function is called with initial value 0, convert the child elements to an array and store in firstContent
-        [...firstContent] = container.children;
+        loadFeed(0, () => {
+          firstContent = container.innerHTML;
 
-        loadFeed(1, done);
+          loadFeed(1, () => {
+            done();
+          });
+        });
       });
 
       it('content changes', () => {
-        // After the loadFeed function is called with initial value 1, convert the child elements to an array and store in secondContent
-        [...secondContent] = container.children;
-
-        // Loop through the secondContent array and compare each of its elements to the firstContent array
-        secondContent.forEach(function(newEntry, index) {
-          expect(newEntry.innerText === firstContent[index]).toBe(false);
-        });
+        secondContent = container.innerHTML;
+        expect(firstContent === secondContent).toBe(false);
       });
     });
   })()
